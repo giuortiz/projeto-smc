@@ -8,8 +8,9 @@ import 'package:projeto_smc/view/page-notas-view.dart';
 class HomeView extends StatefulWidget {
   int nota;
   int decimal;
+  List<int> distribuicaoNotas = new List(4);
 
-  HomeView({this.nota, this.decimal});
+  HomeView({this.nota, this.decimal, this.distribuicaoNotas});
 
   @override
   _HomeViewState createState() => _HomeViewState();
@@ -68,9 +69,9 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
         elevation: 4.0,
         child: new Center(
           child: new ListView(
-        //   mainAxisSize: MainAxisSize.max,
-        //   crossAxisAlignment: CrossAxisAlignment.center,
-        //   mainAxisAlignment: MainAxisAlignment.start,
+            //   mainAxisSize: MainAxisSize.max,
+            //   crossAxisAlignment: CrossAxisAlignment.center,
+            //   mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
               new Container(
                 alignment: Alignment.center,
@@ -145,22 +146,30 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                             new CircularStackEntry(
                               <CircularSegmentEntry>[
                                 new CircularSegmentEntry(
-                                  1,
+                                  (widget.distribuicaoNotas[0] == null)
+                                      ? 0
+                                      : widget.distribuicaoNotas[0].toDouble(),
                                   Colors.red,
                                   rankKey: 'alert',
                                 ),
                                 new CircularSegmentEntry(
-                                  2,
+                                  (widget.distribuicaoNotas[1] == null)
+                                      ? 0
+                                      : widget.distribuicaoNotas[1].toDouble(),
                                   Colors.orange,
                                   rankKey: 'remaining',
                                 ),
                                 new CircularSegmentEntry(
-                                  3,
+                                  (widget.distribuicaoNotas[2] == null)
+                                      ? 0
+                                      : widget.distribuicaoNotas[2].toDouble(),
                                   Colors.grey,
                                   rankKey: 'remaining 2',
                                 ),
                                 new CircularSegmentEntry(
-                                  3,
+                                  (widget.distribuicaoNotas[3] == null)
+                                      ? 0
+                                      : widget.distribuicaoNotas[3].toDouble(),
                                   Colors.green,
                                   rankKey: 'complete',
                                 ),

@@ -12,10 +12,16 @@ class SplashScreenView extends StatefulWidget {
 class _SplashScreenViewState extends State<SplashScreenView> {
   int nota = 0;
   int decimal = 00;
+  List<int> distribuicaoNotas = new List(4);
+
 
   @override
   void initState() {
     Future.delayed(Duration(seconds: 1), () {
+      distribuicaoNotas[0] = 0;
+      distribuicaoNotas[1] = 0;
+      distribuicaoNotas[2] = 0;
+      distribuicaoNotas[3] = 0;
       AppConfiguration.init().then((_) async {
         await _calcularTotal();
         Navigator.push(
@@ -24,6 +30,7 @@ class _SplashScreenViewState extends State<SplashScreenView> {
               builder: (context) => HomeView(
                     nota: nota,
                     decimal: decimal,
+                    distribuicaoNotas: distribuicaoNotas,
                   )),
         );
       });
@@ -49,9 +56,22 @@ class _SplashScreenViewState extends State<SplashScreenView> {
     IFeedbackRepository _feedbackRepository =
         Injector.appInstance.getDependency<IFeedbackRepository>();
     var list = await _feedbackRepository.buscarBatidasPorTempo();
+
     if (list != null && list.length != 0) {
       for (int i = 0; i < list.length; i++) {
         total = total + double.parse(list[i].notaTotal);
+        if (double.parse(list[i].notaTotal) < 2.0) {
+          distribuicaoNotas[0]++;
+        } else if (double.parse(list[i].notaTotal) > 2.0 &&
+            double.parse(list[i].notaTotal) < 5.0) {
+          distribuicaoNotas[1]++;
+        } else if (double.parse(list[i].notaTotal) > 5.0 &&
+            double.parse(list[i].notaTotal) < 8.0) {
+          distribuicaoNotas[2]++;
+        } else if (double.parse(list[i].notaTotal) > 8.0 &&
+            double.parse(list[i].notaTotal) <= 10.0) {
+          distribuicaoNotas[3]++;
+        }
       }
       total = (total / list.length);
       var totalString = total.toStringAsPrecision(3);
