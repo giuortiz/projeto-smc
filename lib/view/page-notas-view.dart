@@ -16,11 +16,14 @@ class _PageNotasViewState extends State<PageNotasView> {
   final _pageController = PageController();
   FeedbackEntity _feedbackEntity = new FeedbackEntity();
   String _tituloAppBar = "Distribuição de lixeiras";
+  String _descricaoNota =
+      "Qual nota você daria para a quantidade de lixeiras no local?";
   double _percent = 0.3;
 
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
+      backgroundColor: const Color(0xffeeeee4),
       appBar: AppBar(
         title: new Text(_tituloAppBar),
         centerTitle: true,
@@ -32,6 +35,18 @@ class _PageNotasViewState extends State<PageNotasView> {
   Widget _buildBody() {
     return new Column(
       children: <Widget>[
+        new Container(
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height / 10,
+          child: new Container(
+            padding: EdgeInsets.only(top: 10.0, left: 10.0, right: 10.0),
+            child: new Text(
+              _descricaoNota,
+              style: TextStyle(color: Colors.white, fontSize: 16.0),
+            ),
+          ),
+          color: Colors.grey,
+        ),
         new Container(
           margin: EdgeInsets.only(top: 4.0),
           child: new LinearPercentIndicator(
@@ -66,6 +81,8 @@ class _PageNotasViewState extends State<PageNotasView> {
             _pageController.jumpToPage(1);
             _feedbackEntity.dispLixeiras = 0;
             _tituloAppBar = "Lixo no chão";
+            _descricaoNota =
+                "Qual nota você daria para a quantidade de lixo encontrada no chão?";
             _percent = 0.6;
             setState(() {});
           },
@@ -82,6 +99,9 @@ class _PageNotasViewState extends State<PageNotasView> {
             _feedbackEntity.dispLixeiras = 1;
             _tituloAppBar = "Lixo no chão";
             _percent = 0.6;
+            _descricaoNota =
+                "Qual nota você daria para a quantidade de lixo encontrada no chão?";
+
             setState(() {});
           },
         ),
@@ -95,6 +115,8 @@ class _PageNotasViewState extends State<PageNotasView> {
             _pageController.jumpToPage(1);
             _feedbackEntity.dispLixeiras = 2;
             _tituloAppBar = "Lixo no chão";
+            _descricaoNota =
+                "Qual nota você daria para a quantidade de lixo encontrada no chão?";
             _percent = 0.6;
             setState(() {});
           },
@@ -109,6 +131,8 @@ class _PageNotasViewState extends State<PageNotasView> {
             _pageController.jumpToPage(1);
             _feedbackEntity.dispLixeiras = 3;
             _percent = 0.6;
+            _descricaoNota =
+                "Qual nota você daria para a quantidade de lixo encontrada no chão?";
             _tituloAppBar = "Lixo no chão";
             setState(() {});
           },
@@ -123,6 +147,8 @@ class _PageNotasViewState extends State<PageNotasView> {
             _pageController.jumpToPage(1);
             _feedbackEntity.dispLixeiras = 4;
             _tituloAppBar = "Lixo no chão";
+            _descricaoNota =
+                "Qual nota você daria para a quantidade de lixo encontrada no chão?";
             _percent = 0.6;
             setState(() {});
           },
@@ -137,6 +163,8 @@ class _PageNotasViewState extends State<PageNotasView> {
             _pageController.jumpToPage(1);
             _feedbackEntity.dispLixeiras = 5;
             _tituloAppBar = "Lixo no chão";
+            _descricaoNota =
+                "Qual nota você daria para a quantidade de lixo encontrada no chão?";
             _percent = 0.6;
             setState(() {});
           },
@@ -152,6 +180,8 @@ class _PageNotasViewState extends State<PageNotasView> {
             _feedbackEntity.dispLixeiras = 6;
             _tituloAppBar = "Lixo no chão";
             _percent = 0.6;
+            _descricaoNota =
+                "Qual nota você daria para a quantidade de lixo encontrada no chão?";
             setState(() {});
           },
         ),
@@ -165,6 +195,8 @@ class _PageNotasViewState extends State<PageNotasView> {
             _pageController.jumpToPage(1);
             _feedbackEntity.dispLixeiras = 7;
             _tituloAppBar = "Lixo no chão";
+            _descricaoNota =
+                "Qual nota você daria para a quantidade de lixo encontrada no chão?";
             _percent = 0.6;
             setState(() {});
           },
@@ -180,6 +212,9 @@ class _PageNotasViewState extends State<PageNotasView> {
             _feedbackEntity.dispLixeiras = 8;
             _tituloAppBar = "Lixo no chão";
             _percent = 0.6;
+            _descricaoNota =
+                "Qual nota você daria para a quantidade de lixo encontrada no chão?";
+
             setState(() {});
           },
         ),
@@ -193,6 +228,8 @@ class _PageNotasViewState extends State<PageNotasView> {
             _pageController.jumpToPage(1);
             _feedbackEntity.dispLixeiras = 9;
             _tituloAppBar = "Lixo no chão";
+            _descricaoNota =
+                "Qual nota você daria para a quantidade de lixo encontrada no chão?";
             _percent = 0.6;
             setState(() {});
           },
@@ -207,6 +244,8 @@ class _PageNotasViewState extends State<PageNotasView> {
             _pageController.jumpToPage(1);
             _feedbackEntity.dispLixeiras = 10;
             _tituloAppBar = "Lixo no chão";
+            _descricaoNota =
+                "Qual nota você daria para a quantidade de lixo encontrada no chão?";
             _percent = 0.6;
             setState(() {});
           },
@@ -223,6 +262,9 @@ class _PageNotasViewState extends State<PageNotasView> {
             _pageController.jumpToPage(2);
             _feedbackEntity.lixoNoChao = 0;
             _tituloAppBar = "Diferenciação de lixos";
+            _descricaoNota =
+                "O evento em questão possui lixeiras para diferentes tipos de lixos??";
+
             _percent = 1.0;
             setState(() {});
           },
@@ -237,6 +279,8 @@ class _PageNotasViewState extends State<PageNotasView> {
           onTap: () {
             _pageController.jumpToPage(2);
             _feedbackEntity.lixoNoChao = 1;
+            _descricaoNota =
+                "O evento em questão possui lixeiras para diferentes tipos de lixos??";
             _tituloAppBar = "Diferenciação de lixos";
             _percent = 1.0;
             setState(() {});
@@ -252,6 +296,8 @@ class _PageNotasViewState extends State<PageNotasView> {
             _pageController.jumpToPage(2);
             _feedbackEntity.lixoNoChao = 2;
             _tituloAppBar = "Diferenciação de lixos";
+            _descricaoNota =
+                "O evento em questão possui lixeiras para diferentes tipos de lixos??";
             _percent = 1.0;
             setState(() {});
           },
@@ -267,6 +313,8 @@ class _PageNotasViewState extends State<PageNotasView> {
             _feedbackEntity.lixoNoChao = 3;
             _tituloAppBar = "Diferenciação de lixos";
             _percent = 1.0;
+            _descricaoNota =
+                "O evento em questão possui lixeiras para diferentes tipos de lixos??";
             setState(() {});
           },
         ),
@@ -281,6 +329,8 @@ class _PageNotasViewState extends State<PageNotasView> {
             _feedbackEntity.lixoNoChao = 4;
             _tituloAppBar = "Diferenciação de lixos";
             _percent = 1.0;
+            _descricaoNota =
+                "O evento em questão possui lixeiras para diferentes tipos de lixos??";
             setState(() {});
           },
         ),
@@ -293,6 +343,8 @@ class _PageNotasViewState extends State<PageNotasView> {
           onTap: () {
             _pageController.jumpToPage(2);
             _feedbackEntity.lixoNoChao = 5;
+            _descricaoNota =
+                "O evento em questão possui lixeiras para diferentes tipos de lixos??";
             _tituloAppBar = "Diferenciação de lixos";
             _percent = 1.0;
             setState(() {});
@@ -307,6 +359,8 @@ class _PageNotasViewState extends State<PageNotasView> {
           onTap: () {
             _pageController.jumpToPage(2);
             _feedbackEntity.lixoNoChao = 6;
+            _descricaoNota =
+                "O evento em questão possui lixeiras para diferentes tipos de lixos??";
             _tituloAppBar = "Diferenciação de lixos";
             _percent = 1.0;
             setState(() {});
@@ -322,6 +376,8 @@ class _PageNotasViewState extends State<PageNotasView> {
             _pageController.jumpToPage(2);
             _feedbackEntity.lixoNoChao = 7;
             _tituloAppBar = "Diferenciação de lixos";
+            _descricaoNota =
+                "O evento em questão possui lixeiras para diferentes tipos de lixos??";
             _percent = 1.0;
             setState(() {});
           },
@@ -336,6 +392,8 @@ class _PageNotasViewState extends State<PageNotasView> {
             _pageController.jumpToPage(2);
             _feedbackEntity.lixoNoChao = 8;
             _tituloAppBar = "Diferenciação de lixos";
+            _descricaoNota =
+                "O evento em questão possui lixeiras para diferentes tipos de lixos??";
             _percent = 1.0;
             setState(() {});
           },
@@ -351,6 +409,8 @@ class _PageNotasViewState extends State<PageNotasView> {
             _feedbackEntity.lixoNoChao = 9;
             _tituloAppBar = "Diferenciação de lixos";
             _percent = 1.0;
+            _descricaoNota =
+                "O evento em questão possui lixeiras para diferentes tipos de lixos??";
             setState(() {});
           },
         ),
@@ -364,6 +424,8 @@ class _PageNotasViewState extends State<PageNotasView> {
             _pageController.jumpToPage(2);
             _feedbackEntity.lixoNoChao = 10;
             _tituloAppBar = "Diferenciação de lixos";
+            _descricaoNota =
+                "O evento em questão possui lixeiras para diferentes tipos de lixos??";
             _percent = 1.0;
             setState(() {});
           },
